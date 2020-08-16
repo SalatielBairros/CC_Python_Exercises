@@ -11,10 +11,10 @@ def partition(ratings):
     listA = []
     listB = []
 
+    print(ratings)
     for n in ratings:
         insert_number(n)
     rebalance()
-    redistribute()
 
     print(sum(listA))
     print(sum(listB))
@@ -71,6 +71,7 @@ def redistribute():
     redistribute()
 
 def rebalance():
+    redistribute()
     while (True):
         bigger, smaller = get_bigger()
         diff = sum(bigger) - sum(smaller)
@@ -96,7 +97,11 @@ def rebalance():
         else:
             smaller.append(bigger[elDiffIndex])
             del bigger[elDiffIndex]
+    redistribute()
 
 
 partition([92, 88, 82, 73, 70, 44, 43, 42, 21, 7])
 partition([87, 81, 76, 62, 33, 32, 18, 17, 5, 2])
+partition([90, 77, 72, 43, 40, 38, 22, 16, 8, 3])
+partition([94, 83, 74, 62, 58, 52, 42, 40, 22, 19])
+partition([879, 814, 755, 729, 490, 487, 436, 253, 148, 133, 71, 33])
